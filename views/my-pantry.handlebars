@@ -1,6 +1,34 @@
 <!-- template for the myPantry page -->
 <section>
-  <h2>Welcome to Your Pantry!</h2>
+    <nav>
+        <a href="/">Log Out</a>
+    </nav>
+    <h2>Welcome to {{user.username}}'s Pantry!</h2>
+
+    <!-- new food and delete food buttons -->
+    <div class="pantry-buttons">
+        <button type="submit" class="btn">New Food</button>
+        <button type="submit" class="btn">Delete Food</button>
+    </div>
+
+    <!-- conditional form -->
+    <form class="conditional-form">
+        <div>
+            <label for="input-food">Type Food to Add</label>
+            <input type="text" id="input-food" name="input-food" />
+        </div>
+        <button type="submit" class="btn">Save</button>
+    </form>
+
+    <!-- list of foods currently in pantry -->
+    <ul>
+        {{#each foods as |food|}}
+        <li>
+            {{> foods food}}
+            <!-- add conditional check box for deletion? -->
+        </li>
+        {{/each}}
+    </ul>
 
 </section>
 
