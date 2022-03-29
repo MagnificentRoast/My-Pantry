@@ -1,4 +1,4 @@
-const {User, Pantry} = require("../../models/");
+const {User, Pantry} = require("../../models");
 
 const router = require('express').Router();
 
