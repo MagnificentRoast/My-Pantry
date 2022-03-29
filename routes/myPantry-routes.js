@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 console.log("hello");
 
-router.get('/myPantry', (req, res) => {
+router.get('/', (req, res) => {
     res.render('my-pantry');
 });
 
