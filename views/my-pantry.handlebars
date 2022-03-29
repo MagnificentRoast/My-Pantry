@@ -6,19 +6,10 @@
     <h2>Welcome to {{user.username}}'s Pantry!</h2>
 
     <!-- new food and delete food buttons -->
-    <div class="pantry-buttons">
-        <button type="submit" class="btn">New Food</button>
-        <button type="submit" class="btn">Delete Food</button>
+    <div id="pantry-buttons" class="pantry-buttons">
+        <button id="addFoodBtn" type="submit" class="btn">New Food</button>
+        <button id="deleteFoodBtn" type="submit" class="btn">Delete Food</button>
     </div>
-
-    <!-- conditional form -->
-    <form class="conditional-form">
-        <div>
-            <label for="input-food">Type Food to Add</label>
-            <input type="text" id="input-food" name="input-food" />
-        </div>
-        <button type="submit" class="btn">Save</button>
-    </form>
 
     <!-- list of foods currently in pantry -->
     <ul>
@@ -32,5 +23,4 @@
 
 </section>
 
-
-{{!-- <script src="/javascript/pantry.js"></script> --}}
+<script src="/javascript/pantry.js"></script>
