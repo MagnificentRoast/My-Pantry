@@ -7,8 +7,8 @@
 
     <!-- new food and delete food buttons -->
     <div class="pantry-buttons">
-        <button type="submit" class="btn">New Food</button>
-        <button type="submit" class="btn">Delete Food</button>
+        <button type="submit" class="btn" id="addFoodBtn">New Food</button>
+        <button type="submit" class="btn" id="deleteFoodBtn">Delete Food</button>
     </div>
 
     <!-- conditional form -->
@@ -25,7 +25,10 @@
         {{#each foods as |food|}}
         <li>
             {{> foods food}}
-            <!-- add conditional check box for deletion? -->
+            <!-- add check box for deletion? -->
+            <label for="delete">
+                <input type="checkbox" id="delete" name="delete" value="false">  Delete 
+            </label>
         </li>
         {{/each}}
     </ul>
