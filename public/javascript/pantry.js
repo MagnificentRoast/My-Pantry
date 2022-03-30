@@ -78,7 +78,25 @@ const toggleFood = (checkboxElement) => {
 
 // Delete food button: appears/highlights once any checkboxes are checked
 const deleteFoodBtnHandler = () => {
+
+    console.log("Deleting checked foods");
+
+    // Organize all <li> elements into an array for sorting/deletion
     let pantryFoods = document.getElementsByClassName("food-li");
+
+    // Check each <p> tag's ID against those stored in checkedFoods global array
+    for (let i = 0; i < pantryFoods.length; i++) {
+        let foodID = pantryFoods[i].children[0].getAttribute("id");
+
+        // If the ID is there, delete the <li> element entirely
+        if (checkedFoods.includes(foodID)) {
+            pantryFoods[i].remove();
+        };
+    }
+    // Reset the value of checkedFoods to be an empty array
+    checkedFoods = [];
+
+
 
     // The below code should access the "checked" property of the checkboxes but for some reason doesn't,
     // so now I had to introduce a toggleFood function
@@ -98,7 +116,7 @@ const deleteFoodBtnHandler = () => {
     //     console.log(food);
     // });
     // console.log(checkedFoods);
-    console.log("Deleting checked foods");
+
 }
 
 document.querySelector("#foods-list").addEventListener("click", event => {
