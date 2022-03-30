@@ -1,10 +1,7 @@
 const router = require('express').Router();
-// const sequelize = require('../config/connection');
-// const {Food, Pantry, User} = require('../models');
-
-console.log("hello");
 
 router.get('/', (req, res) => {
+    console.log("Endpoint is working");
     res.render('my-pantry');
 });
 
