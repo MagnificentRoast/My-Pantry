@@ -1,7 +1,7 @@
 // event handler function for login
 async function loginFormHandler(event) {
     console.log(document.location);
-    document.location.replace('/myPantry');
+    document.location.replace('/my-pantry');
     // event.preventDefault();
 
     // const email = document.querySelector('#email-login').value.trim();
