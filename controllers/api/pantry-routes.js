@@ -46,8 +46,11 @@ router.post("/", (req, res) => {
         user_id: req.body.user_id
     })
     .then(pantryData => {
-        console.log(pantryData);
-        res.json(pantryData);
+        req.session.save(() => {
+            req.session.pantry_id = pantryData.id;
+            console.log(pantryData);
+            res.json(pantryData);
+        });
     })
     .catch(err => {
         console.log(err);

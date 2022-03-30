@@ -10,6 +10,21 @@ const exphbs = require('express-handlebars');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// adding session
+const session = require('express-session');
+
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const sess = {
+    secret: process.env.secret,
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+      db: sequelize
+    })
+  };
+
 const hbs = exphbs.create({});
 
 app.engine('handlebars', hbs.engine);
@@ -21,6 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // turn on routes
 app.use(routes);
+// using session
+app.use(session(sess));
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {

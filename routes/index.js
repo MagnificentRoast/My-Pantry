@@ -5,7 +5,7 @@ const homepageRoutes = require("./homepage-routes.js");
 const myPantryRoutes = require("./myPantry-routes.js")
 
 router.use("/", homepageRoutes);
-router.use("/myPantry", myPantryRoutes);
+router.use("/my-pantry", myPantryRoutes);
 router.use('/api', apiRoutes);
 
 // catch-all for bad endpoint requests

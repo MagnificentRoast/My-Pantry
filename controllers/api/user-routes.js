@@ -47,8 +47,13 @@ router.post("/", (req, res) => {
         password: req.body.password
     })
     .then(userData => {
-        console.log(userData);
-        res.json(userData);
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.username = userData.username;
+            req.session.loggedIn = true;
+            console.log(userData);
+            res.json(userData);
+        });
     })
     .catch(err => {
         console.log(err);
