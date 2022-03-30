@@ -1,5 +1,6 @@
 const {Model, DataTypes} = require("sequelize");
 const sequelize = require("../config/connection");
+const bcrypt = require("bcrypt");
 
 class User extends Model {}
 
@@ -15,27 +16,14 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [1],
-                isAlphanumeric: true
+                len: [1]
             }
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [4],
-                // Try to require a number
-                contains: {
-                    isNumeric: true
-                }
-            }
-        },
-        pantry_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: "pantry",
-                key: "id"
+                len: [4]
             }
         }
     },

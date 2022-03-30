@@ -1,0 +1,26 @@
+<!-- template for the myPantry page -->
+<section>
+    <nav>
+        <a href="/">Log Out</a>
+    </nav>
+    <h2>Welcome to {{user.username}}'s Pantry!</h2>
+
+    <!-- new food and delete food buttons -->
+    <div id="pantry-buttons" class="pantry-buttons">
+        <button id="addFoodBtn" type="submit" class="btn">New Food</button>
+        <button id="deleteFoodBtn" type="submit" class="btn">Delete Food</button>
+    </div>
+
+    <!-- list of foods currently in pantry -->
+    <ul>
+        {{#each foods as |food|}}
+        <li>
+            {{> foods food}}
+            <!-- add conditional check box for deletion? -->
+        </li>
+        {{/each}}
+    </ul>
+
+</section>
+
+<script src="/javascript/pantry.js"></script>

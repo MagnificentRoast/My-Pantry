@@ -15,14 +15,11 @@ Food.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [1],
-                isAlpha: true,
-                isNumeric: false
+                len: [1]
             }
         },
         pantry_id: {
             type: DataTypes.INTEGER,
-            allowNull: true,
             references: {
                 model: "pantry",
                 key: "id"
