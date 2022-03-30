@@ -45,7 +45,7 @@ async function signupFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/myPantry');
+        document.location.replace('/my-pantry');
       } else {
         alert(response.statusText);
       }

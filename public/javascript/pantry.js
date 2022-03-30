@@ -55,6 +55,16 @@ const addFoodBtnHandler = () => {
 
 // Delete food button: appears/highlights once any checkboxes are checked
 const deleteFoodBtnHandler = () => {
+    let pantryFoods = document.getElementsByClassName("food-li");
+    console.log(pantryFoods);
+
+
+    // console.log(pantryFoods);
+    // let checkedFoods = pantryFoods.map(food => {
+    //     food.value = "false";
+    //     console.log(food);
+    // });
+    // console.log(checkedFoods);
     console.log("Deleting checked foods");
 }
 
