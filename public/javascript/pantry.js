@@ -2,6 +2,9 @@
 const addFoodBtn = document.querySelector("#addFood");
 const deleteFoodBtn = document.querySelector("#deleteFood");
 
+// Array to hold foods that are to be deleted
+let checkedFoods = [];
+
 // Logout button and handler
 
 // Create food button handler
@@ -53,13 +56,43 @@ const addFoodBtnHandler = () => {
     });
 }
 
+// Assigns food IDs to an array on checkbox toggle
+const toggleFood = (checkboxElement) => {
+
+    // Get the neighboring <p> element's ID
+    const foodID = checkboxElement.parentElement.children[0].getAttribute("id");
+
+    // If that ID is not in the array, add it.
+    if (!checkedFoods.includes(foodID)) {
+        console.log("This ID is not in checkedFoods Array.");
+        checkedFoods.push(foodID);
+    }
+    // Otherwise, remove it.
+    else {
+        checkedFoods = checkedFoods.filter(id => id !== foodID);
+    }
+
+    console.log("Checked foods: "+checkedFoods);
+
+}
+
 // Delete food button: appears/highlights once any checkboxes are checked
 const deleteFoodBtnHandler = () => {
     let pantryFoods = document.getElementsByClassName("food-li");
-    console.log(pantryFoods);
 
+    // The below code should access the "checked" property of the checkboxes but for some reason doesn't,
+    // so now I had to introduce a toggleFood function
+    // for (let i = 0; i < pantryFoods.length; i++) {
+    //     let children = pantryFoods[0].children;
+    //     console.log(children[1].checked);
+    //     if (children[1].checked === true) {
+    //         console.log("The box is checked.");
+    //     }
+    //     else {
+    //         console.log("The box is unchecked.");
+    //     }
+    // }
 
-    // console.log(pantryFoods);
     // let checkedFoods = pantryFoods.map(food => {
     //     food.value = "false";
     //     console.log(food);
@@ -68,6 +101,11 @@ const deleteFoodBtnHandler = () => {
     console.log("Deleting checked foods");
 }
 
-
+document.querySelector("#foods-list").addEventListener("click", event => {
+    if (event.target.getAttribute("class") === "delete-checkbox") {
+        console.log("Clicked a checkbox");
+        toggleFood(event.target);
+    }
+})
 document.querySelector("#addFoodBtn").addEventListener("click", addFoodBtnHandler);
 document.querySelector("#deleteFoodBtn").addEventListener("click", deleteFoodBtnHandler);

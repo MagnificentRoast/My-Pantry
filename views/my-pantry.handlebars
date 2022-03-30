@@ -14,14 +14,10 @@
     </div>
 
     <!-- list of foods currently in pantry -->
-    <ul>
+    <ul id="foods-list">
         {{#each foods as |food|}}
         <li class="food-li">
             {{> foods food}}
-            <!-- add check box for deletion -->
-            <label for="delete">
-                <input type="checkbox" class="delete-checkbox" name="delete" value="false">  Delete 
-            </label>
         </li>
         {{/each}}
     </ul>
