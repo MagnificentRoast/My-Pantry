@@ -6,9 +6,9 @@ const {Food, Pantry, User} = require('../models');
 router.get('/', (req, res) => {
     console.log(req.session);
     Food.findAll({
-        where: {
-            user_id: req.session.user_id
-        },
+        // where: {
+//     pantry_id: req.session.pantry_id
+// },   
         attributes: [
             'id',
             'food_name',
@@ -17,16 +17,16 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: Pantry,
-                attributes: ['id', 'user_id'],
+                attributes: ['id'],
                 include: {
                     model: User,
                     attributes: ['username']
                 }
             },
-            {
-                model: User,
-                attributes: ['username']
-            }
+            // {
+            //     model: User,
+            //     attributes: ['username']
+            // }
         ]
     })
     .then(dbFoodData => {
@@ -40,3 +40,7 @@ router.get('/', (req, res) => {
 });
 
 module.exports = router;
+
+// where: {
+//     pantry_id: req.session.pantry_id
+// },
