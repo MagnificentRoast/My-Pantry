@@ -6,9 +6,6 @@ const {Food, Pantry, User} = require('../models');
 router.get('/', (req, res) => {
     console.log(req.session);
     Food.findAll({
-        // where: {
-//     pantry_id: req.session.pantry_id
-// },   
         attributes: [
             'id',
             'food_name',
@@ -22,11 +19,7 @@ router.get('/', (req, res) => {
                     model: User,
                     attributes: ['username']
                 }
-            },
-            // {
-            //     model: User,
-            //     attributes: ['username']
-            // }
+            }
         ]
     })
     .then(dbFoodData => {
@@ -41,7 +34,3 @@ router.get('/', (req, res) => {
 });
 
 module.exports = router;
-
-// where: {
-//     pantry_id: req.session.pantry_id
-// },
