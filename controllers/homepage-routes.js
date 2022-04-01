@@ -10,7 +10,6 @@ router.get('/login', (req, res) => {
       res.redirect('/my-pantry');
       return;
     }
-  
     res.render('my-pantry');
   });
 
