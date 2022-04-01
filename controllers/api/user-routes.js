@@ -70,6 +70,10 @@ router.post('/logout', (req, res) => {
     } else {
         res.status(404).end();
     }
+
+// POST request to log in
+router.post("/login", (req, res) => {
+    
 })
 
 // Modify existing user data
