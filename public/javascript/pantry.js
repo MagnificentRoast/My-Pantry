@@ -81,7 +81,13 @@ const deleteFoodBtnHandler = () => {
 
         // If the ID is there, delete the <li> element entirely
         if (checkedFoods.includes(foodID)) {
+            
             pantryFoods[i].remove();
+            // Perform a fetch delete request for that food as well
+            fetch(`/api/foods/${foodID}`, {
+                method: "delete"
+            });
+            
             i--;
         }
     }
