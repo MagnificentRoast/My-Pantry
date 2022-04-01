@@ -30,7 +30,7 @@ const addFoodBtnHandler = () => {
     // Add listeners and handlers
     newFoodForm.addEventListener("submit", (event) => {
         event.preventDefault();
-
+        
         // Fetch request to create a new food and then add to pantry
         fetch('/api/foods', {
             method: 'post',
@@ -39,15 +39,16 @@ const addFoodBtnHandler = () => {
                 pantry_id: 1
             }),
             headers: { 'Content-Type': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
+        })
+        .then(response => {
+            if (response.ok) {
                 console.log("Added food to pantry");
                 console.log(response);
-                } else {
+            } else {
                 alert(response.statusText);
-                }
-            });
+            }
+            setTimeout(function() {window.location.reload();}, 10);
+        });
         // console.log(`Added ${newFoodSearch.value.trim()} to pantry`);
     });
 }
