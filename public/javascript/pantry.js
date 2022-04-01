@@ -96,8 +96,6 @@ const deleteFoodBtnHandler = () => {
     // Reset the value of checkedFoods to be an empty array
     checkedFoods = [];
 
-
-
     // The below code should access the "checked" property of the checkboxes but for some reason doesn't,
     // so now I had to introduce a toggleFood function
     // for (let i = 0; i < pantryFoods.length; i++) {
@@ -116,7 +114,6 @@ const deleteFoodBtnHandler = () => {
     //     console.log(food);
     // });
     // console.log(checkedFoods);
-
 }
 
 document.querySelector("#foods-list").addEventListener("click", event => {
