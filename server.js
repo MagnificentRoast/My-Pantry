@@ -1,18 +1,17 @@
 // create server using express and sequelize on port 3001
 const express = require('express');
 const routes = require ('./controllers');
-const sequelize = require('./config/connection');
 const path = require('path');
-
 // adding handlebars.js
 const exphbs = require('express-handlebars');
+// adding session
+const session = require('express-session');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// adding session
-const session = require('express-session');
 
+const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
@@ -24,6 +23,8 @@ const sess = {
       db: sequelize
     })
   };
+  // using session
+  app.use(session(sess));
 
 const hbs = exphbs.create({});
 
@@ -36,8 +37,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // turn on routes
 app.use(routes);
-// using session
-app.use(session(sess));
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
