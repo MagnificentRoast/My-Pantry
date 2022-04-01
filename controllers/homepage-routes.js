@@ -7,11 +7,11 @@ router.get('/', (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-      res.redirect('/');
+      res.redirect('/my-pantry');
       return;
     }
   
-    res.render('homepage');
+    res.render('my-pantry');
   });
 
 module.exports = router;

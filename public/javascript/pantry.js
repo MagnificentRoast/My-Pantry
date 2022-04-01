@@ -1,4 +1,3 @@
-
 // Array to hold foods that are to be deleted
 let checkedFoods = [];
 
@@ -36,7 +35,7 @@ const addFoodBtnHandler = () => {
             method: 'post',
             body: JSON.stringify({
                 food_name: newFoodSearch.value.trim(),
-                pantry_id: 1
+                pantry_id: req.session.pantry_id
             }),
             headers: { 'Content-Type': 'application/json' }
         })

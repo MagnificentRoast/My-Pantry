@@ -64,11 +64,11 @@ router.post("/", (req, res) => {
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
-            email: req.body.email
+            username: req.body.username
         }
     }).then(dbUserData => {
         if (!dbUserData) {
-            res.status(400).json({ message: 'No user with that email address!' });
+            res.status(400).json({ message: 'No user with that username!' });
             return;
         }
 
@@ -104,11 +104,11 @@ router.post('/logout', (req, res) => {
 router.post("/login", (req, res) => {
     User.findOne({
         where: {
-            email: req.body.email
+            username: req.body.username
         }
     }).then(dbUserData => {
         if (!dbUserData) {
-            res.status(400).json({ message: 'No user with that email address!' });
+            res.status(400).json({ message: 'No user with that username!' });
             return;
         }
 
@@ -116,6 +116,7 @@ router.post("/login", (req, res) => {
 
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect password!' });
+            console.log("this is a test notification")
             return;
         }
 
