@@ -5,13 +5,13 @@ router.get('/', (req, res) => {
     res.render('homepage');
 });
 
-// router.get('/login', (req, res) => {
-//     if (req.session.loggedIn) {
-//       res.redirect('/');
-//       return;
-//     }
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/my-pantry');
+      return;
+    }
   
-//     res.render('homepage');
-//   });
+    res.render('my-pantry');
+  });
 
 module.exports = router;
