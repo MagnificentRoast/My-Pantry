@@ -33,6 +33,7 @@ router.get("/:id", (req, res) => {
             return;
         }
         res.json(userData);
+        console.log("userData: "+userData);
     })
     .catch(err => {
         res.status(500).json(err);
@@ -59,10 +60,6 @@ router.post("/", (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-    Pantry.create({
-        user_id: req.session.user_id
-    });
-
 });
 
 router.post('/login', (req, res) => {

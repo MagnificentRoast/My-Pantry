@@ -2,7 +2,7 @@ const User = require("./User");
 const Food = require("./Food");
 
 // Define associations
-User.hasMany(Pantry, {
+User.hasMany(Food, {
     foreignKey: "user_id"
 });
 
