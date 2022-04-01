@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const {Food, Pantry, User} = require('../models');
+const {Food, User} = require('../models');
 
 // get all foods for pantry page
 router.get('/', (req, res) => {
@@ -9,11 +9,11 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'food_name',
-            'pantry_id'
+            'user_id'
         ],
         include: [
             {
-                model: Pantry,
+                model: User,
                 attributes: ['id'],
                 include: {
                     model: User,

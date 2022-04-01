@@ -41,13 +41,10 @@ async function signupFormHandler(event) {
         headers: { 'Content-Type': 'application/json' }
       });
       if (response.ok) {
-        const pantryCall = fetch('/api/pantry', {
-          method: 'post',
-          body: JSON.stringify()
-        })
         document.location.replace('/my-pantry');
       } else {
         alert(response.statusText);
+        return;
       }
     }
 }

@@ -35,7 +35,7 @@ const addFoodBtnHandler = () => {
             method: 'post',
             body: JSON.stringify({
                 food_name: newFoodSearch.value.trim(),
-                pantry_id: req.session.pantry_id
+                user_id: req.session.user_id
             }),
             headers: { 'Content-Type': 'application/json' }
         })

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Food, Pantry} = require("../../models");
+const {Food} = require("../../models");
 
 // Get all foods
 router.get("/", (req, res) => {
@@ -40,7 +40,7 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
     Food.create({
         food_name: req.body.food_name,
-        pantry_id: req.body.pantry_id
+        user_id: req.body.user_id
     })
     .then(foodData => {
         console.log(foodData);

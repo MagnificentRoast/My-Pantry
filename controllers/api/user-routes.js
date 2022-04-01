@@ -1,4 +1,4 @@
-const {User, Pantry} = require("../../models");
+const {User} = require("../../models");
 
 const router = require('express').Router();
 
@@ -20,12 +20,7 @@ router.get("/:id", (req, res) => {
     User.findOne({
         where: {
             id: req.params.id
-        },
-        include: [
-            {
-                model: Pantry
-            }
-        ]
+        }
     })
     .then(userData => {
         if (!userData) {
@@ -141,9 +136,8 @@ router.post("/login", (req, res) => {
 router.put("/:id", (req, res) => {
     User.update(
         {
-            // For now just update username and pantry_id
-            username: req.body.username,
-            pantry_id: req.body.pantry_id
+            // For now just update username
+            username: req.body.username
         },
         {
         where: 

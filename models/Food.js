@@ -18,10 +18,10 @@ Food.init(
                 len: [1]
             }
         },
-        pantry_id: {
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: "pantry",
+                model: "user",
                 key: "id"
             }
         }
