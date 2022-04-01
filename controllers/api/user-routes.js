@@ -61,6 +61,11 @@ router.post("/", (req, res) => {
     });
 });
 
+// POST request to log in
+router.post("/login", (req, res) => {
+    
+})
+
 // Modify existing user data
 router.put("/:id", (req, res) => {
     User.update(
