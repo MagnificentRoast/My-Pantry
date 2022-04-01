@@ -1,6 +1,6 @@
 // create server using express and sequelize on port 3001
 const express = require('express');
-const routes = require ('./routes');
+const routes = require ('./controllers');
 const sequelize = require('./config/connection');
 const path = require('path');
 
