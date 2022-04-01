@@ -1,4 +1,4 @@
-const {User, Pantry} = require("../../models");
+const {User, Food} = require("../../models");
 
 const router = require('express').Router();
 
@@ -23,7 +23,7 @@ router.get("/:id", (req, res) => {
         },
         include: [
             {
-                model: Pantry
+                model: Food
             }
         ]
     })
@@ -120,7 +120,6 @@ router.post("/login", (req, res) => {
 
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect password!' });
-            console.log("this is a test notification")
             return;
         }
 
@@ -143,8 +142,7 @@ router.put("/:id", (req, res) => {
     User.update(
         {
             // For now just update username and pantry_id
-            username: req.body.username,
-            pantry_id: req.body.pantry_id
+            username: req.body.username
         },
         {
         where: 
