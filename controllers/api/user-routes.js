@@ -59,6 +59,10 @@ router.post("/", (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+    Pantry.create({
+        user_id: req.session.user_id
+    });
+
 });
 
 router.post('/login', (req, res) => {
