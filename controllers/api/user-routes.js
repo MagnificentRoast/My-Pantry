@@ -53,6 +53,9 @@ router.post("/", (req, res) => {
             req.session.loggedIn = true;
             console.log(userData);
             res.json(userData);
+
+            console.log(req.session.user_id);
+            console.log(req.session.username);
         });
     })
     .catch(err => {

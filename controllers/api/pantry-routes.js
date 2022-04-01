@@ -50,6 +50,8 @@ router.post("/", (req, res) => {
             req.session.pantry_id = pantryData.id;
             console.log(pantryData);
             res.json(pantryData);
+
+            console.log("pantry id is " + req.session.pantry_id);
         });
     })
     .catch(err => {
