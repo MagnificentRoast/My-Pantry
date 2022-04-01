@@ -1,7 +1,6 @@
 // event handler function for login
 async function loginFormHandler(event) {
     console.log(document.location);
-    document.location.replace('/my-pantry');
     event.preventDefault();
 
     const username = document.querySelector('#username-login').value.trim();
@@ -18,7 +17,7 @@ async function loginFormHandler(event) {
         });
 
         if(response.ok) {
-            document.location.replace('/my-pantry/');
+            document.location.replace('/my-pantry');
         } else {
             alert(response.statusText);
         }
@@ -42,6 +41,10 @@ async function signupFormHandler(event) {
         headers: { 'Content-Type': 'application/json' }
       });
       if (response.ok) {
+        const pantryCall = fetch('/api/pantry', {
+          method: 'post',
+          body: JSON.stringify()
+        })
         document.location.replace('/my-pantry');
       } else {
         alert(response.statusText);
