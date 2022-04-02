@@ -90,7 +90,6 @@ router.post('/login', (req, res) => {
 
             res.json({ user: dbUserData, message: 'You are now logged in!'});
         });
-        console.log("User ID: "+req.session.user_id);
     });
 });
 
