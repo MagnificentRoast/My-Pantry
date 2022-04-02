@@ -1,7 +1,6 @@
 // event handler function for login
 async function loginFormHandler(event) {
     console.log(document.location);
-    document.location.replace('/my-pantry');
     event.preventDefault();
 
     const username = document.querySelector('#username-login').value.trim();
@@ -18,7 +17,7 @@ async function loginFormHandler(event) {
         });
 
         if(response.ok) {
-            document.location.replace('/my-pantry/');
+            document.location.replace('/my-pantry');
         } else {
             alert(response.statusText);
         }
@@ -47,6 +46,12 @@ async function signupFormHandler(event) {
         alert(response.statusText);
       }
     }
+    
+    // put functionality at line 44
+    // first get user's id
+    // then fetch post request to create a new pantry
+    // then assign pantry id to user 
+    // then redirect to pantry page
 }
 
 // event listener for login
