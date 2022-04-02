@@ -62,6 +62,8 @@ router.post("/", (req, res) => {
     });
 });
 
+
+// POST request to log in
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
@@ -88,6 +90,7 @@ router.post('/login', (req, res) => {
 
             res.json({ user: dbUserData, message: 'You are now logged in!'});
         });
+        console.log("User ID: "+req.session.user_id);
     });
 });
 
@@ -100,39 +103,6 @@ router.post('/logout', (req, res) => {
     } else {
         res.status(404).end();
     }
-
-// POST request to log in
-router.post("/login", (req, res) => {
-    User.findOne({
-        where: {
-            username: req.body.username
-        }
-    }).then(dbUserData => {
-        if (!dbUserData) {
-            res.status(400).json({ message: 'No user with that username!' });
-            return;
-        }
-
-        const validPassword = dbUserData.checkPassword(req.body.password);
-
-        if (!validPassword) {
-            res.status(400).json({ message: 'Incorrect password!' });
-            return;
-        }
-
-        req.session.save(() => {
-            // declare session variables
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
-            req.session.loggedIn = true;
-
-            res.json({ user: dbUserData, message: 'You are now logged in!'});
-        });
-    })
-})
-// POST request to log in
-// router.post("/login", (req, res) => {
-    
 
 // Modify existing user data
 router.put("/:id", (req, res) => {

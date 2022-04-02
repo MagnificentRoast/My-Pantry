@@ -5,6 +5,9 @@ const {Food, User} = require('../models');
 router.get('/', (req, res) => {
     console.log(req.session);
     Food.findAll({
+        where: {
+            user_id: req.session.id
+        },
         attributes: [
             'id',
             'food_name',
@@ -18,6 +21,7 @@ router.get('/', (req, res) => {
         ]
     })
     .then(dbFoodData => {
+        console.log(dbFoodData);
         const foods = dbFoodData.map(food => food.get({plain: true}));
         res.render('my-pantry', {foods, loggedIn: true});
     })

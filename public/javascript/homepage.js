@@ -40,13 +40,12 @@ async function signupFormHandler(event) {
 		}),
 		headers: { 'Content-Type': 'application/json' }
 	});
-
 	if (response.ok) {
 		// redirect them to /my-pantry
 		document.location.replace('/my-pantry')     
 	} else {
 		alert(response.statusText);
-		}
+	}
 	}
 }
 
