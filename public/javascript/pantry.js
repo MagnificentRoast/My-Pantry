@@ -1,7 +1,24 @@
+
 // Array to hold foods that are to be deleted
 let checkedFoods = [];
+let user_id;
 
 // Logout button and handler
+
+// Fetch to get the user ID based on username
+fetch("/api/users").then(response => {
+    return response.json();
+})
+.then(data => {
+
+    // Split the string within the page's <h2> element
+    let pageHeading = document.getElementById("pantry-title").textContent.split(" ");
+    let username = pageHeading[2].split("'")[0];
+
+    const user = data.filter(data => data.username === username);
+    user_id = user[0].id;
+    console.log(user_id);
+});
 
 // Create food button handler
 const addFoodBtnHandler = () => {
@@ -35,7 +52,7 @@ const addFoodBtnHandler = () => {
             method: 'post',
             body: JSON.stringify({
                 food_name: newFoodSearch.value.trim(),
-                user_id: req.session.user_id
+                user_id: user_id
             }),
             headers: { 'Content-Type': 'application/json' }
         })
