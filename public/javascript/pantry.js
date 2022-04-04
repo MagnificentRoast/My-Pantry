@@ -22,50 +22,56 @@ fetch("/api/users").then(response => {
 // Create food button handler
 const addFoodBtnHandler = () => {
 
-    // Display a new text field that will use autocomplete
-    const newFoodSearch = document.createElement("input");
-    newFoodSearch.setAttribute("id", "newFoodSearch");
-    newFoodSearch.setAttribute("placeholder", "Select A Food");
-    
+    // Check whether the food input elements already exist, and only create if they do not
+    if (!document.querySelector("#newFoodSearch")) {
 
-    //To the right of that, display an "add" button
-    const newFoodBtn = document.createElement("button");
-    newFoodBtn.setAttribute("id", "newFoodBtn");
-    newFoodBtn.textContent = "Add to Pantry";
-    newFoodBtn.setAttribute("type", "submit");
-
-    // Append both items to a new form element
-    const newFoodForm = document.createElement("form");
-    newFoodForm.setAttribute("id", "newFoodForm");
-    newFoodForm.appendChild(newFoodSearch);
-    newFoodForm.appendChild(newFoodBtn);
-
-    document.querySelector("#pantry-buttons").appendChild(newFoodForm);
-
-    // Add listeners and handlers
-    newFoodForm.addEventListener("submit", (event) => {
-        event.preventDefault();
+        // Display a new text field that will use autocomplete
+        const newFoodSearch = document.createElement("input");
+        newFoodSearch.setAttribute("id", "newFoodSearch");
+        newFoodSearch.setAttribute("placeholder", "Select A Food");
         
-        // Fetch request to create a new food and then add to pantry
-        fetch('/api/foods', {
-            method: 'post',
-            body: JSON.stringify({
-                food_name: newFoodSearch.value.trim(),
-                user_id: user_id
-            }),
-            headers: { 'Content-Type': 'application/json' }
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log("Added food to pantry");
-                console.log(response);
-            } else {
-                alert(response.statusText);
-            }
-            setTimeout(function() {window.location.reload();}, 10);
+    
+        //To the right of that, display an "add" button
+        const newFoodBtn = document.createElement("button");
+        newFoodBtn.setAttribute("id", "newFoodBtn");
+        newFoodBtn.textContent = "Add to Pantry";
+        newFoodBtn.setAttribute("type", "submit");
+    
+        // Append both items to a new form element
+        const newFoodForm = document.createElement("form");
+        newFoodForm.setAttribute("id", "newFoodForm");
+        newFoodForm.appendChild(newFoodSearch);
+        newFoodForm.appendChild(newFoodBtn);
+    
+        document.querySelector("#pantry-buttons").appendChild(newFoodForm);
+    
+        // Add listeners and handlers
+        newFoodForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            
+            // Fetch request to create a new food and then add to pantry
+            fetch('/api/foods', {
+                method: 'post',
+                body: JSON.stringify({
+                    food_name: newFoodSearch.value.trim(),
+                    user_id: user_id
+                }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Added food to pantry");
+                    console.log(response);
+                } else {
+                    alert(response.statusText);
+                }
+                setTimeout(function() {window.location.reload();}, 10);
+            });
         });
-        // console.log(`Added ${newFoodSearch.value.trim()} to pantry`);
-    });
+    }
+    else {
+        // Add transition effect to hide the new food input section
+    }
 }
 
 // Assigns food IDs to an array on checkbox toggle
