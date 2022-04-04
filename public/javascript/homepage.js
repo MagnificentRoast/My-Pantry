@@ -17,7 +17,7 @@ async function loginFormHandler(event) {
         });
 
         if(response.ok) {
-            document.location.replace('/my-pantry/');
+            document.location.replace('/my-pantry');
         } else {
             alert(response.statusText);
         }
