@@ -12,18 +12,23 @@
         <div id="new-food-div" class="flex items-center">
             <button id="addFoodBtn" type="submit" class="btn border font-bold bg-emerald-400 rounded p-3 ml-12">New Food</button>
         </div>
-        <button id="deleteFoodBtn" type="submit" class="btn border font-bold bg-emerald-400 rounded p-3 mr-12">Delete Food</button>
-
+        <button id="deleteFoodBtn" type="submit" class="btn border font-bold bg-emerald-400 rounded p-3 mr-12">Delete Foods</button>
     </div>
 
     <!-- list of foods currently in pantry -->
-    <ul id="foods-list">
-        {{#each foods as |food|}}
-        <li class="food-li">
-            {{> foods food}}
-        </li>
-        {{/each}}
-    </ul>
+    <div class="mt-12 w-3/4">
+        <div id="pantry-foods-header" class="w-full py-3 flex justify-between items-center px-12">
+            <p class="text-lg font-bold underline decoration-solid decoration-emerald-500 decoration-2">Foods Currently In Pantry</p>
+            <p class="text-lg font-bold underline decoration-solid decoration-emerald-500 decoration-2">Remove</p>
+        </div>
+        <ul id="foods-list">
+            {{#each foods as |food|}}
+            <li class="food-li flex justify-between items-center py-4 my-4 bg-slate-200 rounded">
+                {{> foods food}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
 
 </section>
 

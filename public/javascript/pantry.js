@@ -11,8 +11,8 @@ fetch("/api/users").then(response => {
 
     // Split the string within the page's <h2> element to grab username
     let pageHeading = document.getElementById("pantry-title").textContent.split(" ");
-    let username = pageHeading[2].split("'")[0];
-
+    let username = pageHeading[0].split("'")[0];
+    
     // filter the array of users to find the one whose username matches
     const user = data.filter(data => data.username === username);
     // Assign that user's ID to the global variable for use in displaying foods
@@ -127,7 +127,7 @@ const deleteFoodBtnHandler = () => {
 }
 
 document.querySelector("#foods-list").addEventListener("click", event => {
-    if (event.target.getAttribute("class") === "delete-checkbox") {
+    if (event.target.classList.contains("delete-checkbox")) {
         toggleFood(event.target);
     }
 })
