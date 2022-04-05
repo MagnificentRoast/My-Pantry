@@ -12,7 +12,7 @@ fetch("/api/users").then(response => {
     // Split the string within the page's <h2> element to grab username
     let pageHeading = document.getElementById("pantry-title").textContent.split(" ");
     let username = pageHeading[0].split("'")[0];
-    
+
     // filter the array of users to find the one whose username matches
     const user = data.filter(data => data.username === username);
     // Assign that user's ID to the global variable for use in displaying foods
@@ -84,12 +84,10 @@ const addFoodBtnHandler = () => {
 // Assigns food IDs to an array on checkbox toggle
 const toggleFood = (checkboxElement) => {
 
-    // Add conditional styling to the delete food button when boxes are/aren't checked.
-    // TODO: Code here
-
+    
     // Get the neighboring <p> element's ID
     const foodID = checkboxElement.parentElement.children[0].getAttribute("id");
-
+    
     // If that ID is not in the array, add it.
     if (!checkedFoods.includes(foodID)) {
         checkedFoods.push(foodID);
@@ -97,6 +95,16 @@ const toggleFood = (checkboxElement) => {
     // Otherwise, remove it.
     else {
         checkedFoods = checkedFoods.filter(id => id !== foodID);
+    }
+    
+    // Add conditional styling to the delete food button when boxes are/aren't checked.
+    if (checkedFoods.length < 1) {
+        document.querySelector("#deleteFoodBtn").classList.replace("bg-emerald-400", "bg-slate-200");
+        document.querySelector("#deleteFoodBtn").classList.add("text-slate-400");
+    }
+    else {
+        document.querySelector("#deleteFoodBtn").classList.replace("bg-slate-200", "bg-emerald-400");
+        document.querySelector("#deleteFoodBtn").classList.remove("text-slate-400");
     }
 }
 
