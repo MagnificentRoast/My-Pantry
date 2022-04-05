@@ -29,7 +29,7 @@ const addFoodBtnHandler = () => {
         const newFoodSearch = document.createElement("input");
         newFoodSearch.setAttribute("id", "newFoodSearch");
         newFoodSearch.setAttribute("placeholder", "Select A Food");
-        newFoodSearch.classList = "rounded ml-4 h-1/2 p-2";
+        newFoodSearch.classList = "rounded lg:mx-2 h-1/2 p-2";
         
     
         //To the right of that, display an "add" button
@@ -37,13 +37,14 @@ const addFoodBtnHandler = () => {
         newFoodBtn.setAttribute("id", "newFoodBtn");
         newFoodBtn.textContent = "Add to Pantry";
         newFoodBtn.setAttribute("type", "submit");
-        newFoodBtn.classList = "ml-2 h-1/2 p-2 bg-orange-300 font-bold rounded";
+        newFoodBtn.classList = "my-2 sm:mt-2 lg:mx-2 h-1/2 p-2 bg-orange-300 font-bold rounded";
     
         // Append both items to a new form element
         const newFoodForm = document.createElement("form");
         newFoodForm.setAttribute("id", "newFoodForm");
         newFoodForm.appendChild(newFoodSearch);
         newFoodForm.appendChild(newFoodBtn);
+        newFoodForm.classList = "flex flex-col sm:mx-4 lg:mx-0 justify-center items-center md:block "
     
         // Append the form to the new-food-div element
         document.querySelector("#new-food-div").appendChild(newFoodForm);
