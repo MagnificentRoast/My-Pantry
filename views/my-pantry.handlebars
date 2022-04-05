@@ -1,6 +1,6 @@
 <!-- template for the myPantry page -->
-<section class="flex flex-col justify-center items-center border border-green-600">
-    <nav class="bg-slate-900 border w-screen py-2 flex h-24 items-start">
+<section class="flex flex-col justify-center items-center">
+    <nav class="bg-slate-900 w-screen py-2 flex h-24 items-start">
         <a class="ml-4 p-2 font-bold rounded bg-emerald-400" href="/">Log Out</a>
         <p class="ml-4 p-2 italic text-slate-600">Logged in as {{user.username}}</p>
     </nav>
@@ -10,25 +10,27 @@
 
     <div id="pantry-buttons" class="pantry-buttons flex items-center justify-between bg-slate-800 rounded-lg w-3/4 p-4">
         <div id="new-food-div" class="flex items-center">
-            <button id="addFoodBtn" type="submit" class="btn border font-bold bg-emerald-400 rounded p-3 ml-12">New Food</button>
+            <button id="addFoodBtn" type="submit" class="btn font-bold bg-emerald-400 rounded p-3 ml-12">New Food</button>
         </div>
-        <button id="deleteFoodBtn" type="submit" class="btn border font-bold bg-slate-200 text-slate-400 rounded p-3 mr-12">Delete Foods</button>
+        <button id="deleteFoodBtn" type="submit" class="btn font-bold bg-slate-200 text-slate-400 rounded p-3 mr-12">Delete Foods</button>
     </div>
 
     <!-- list of foods currently in pantry -->
+    {{#if foods}}
     <div class="mt-12 w-3/4">
         <div id="pantry-foods-header" class="w-full py-3 flex justify-between items-center px-12">
-            <p class="text-lg font-bold underline decoration-solid decoration-emerald-500 decoration-2">Foods Currently In Pantry</p>
-            <p class="text-lg font-bold underline decoration-solid decoration-emerald-500 decoration-2">Remove</p>
+            <p class="text-lg font-bold underline decoration-solid decoration-blue-700 decoration-2">Foods Currently In Pantry</p>
+            <p class="text-lg font-bold underline decoration-solid decoration-blue-700 decoration-2">Remove</p>
         </div>
         <ul id="foods-list">
             {{#each foods as |food|}}
-            <li class="food-li flex justify-between items-center py-4 my-4 bg-slate-200 rounded">
+            <li class="food-li flex justify-between items-center py-4 my-4 bg-slate-100 rounded shadow-lg">
                 {{> foods food}}
             </li>
             {{/each}}
         </ul>
     </div>
+    {{/if}}
 
 </section>
 

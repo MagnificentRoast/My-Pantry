@@ -96,7 +96,7 @@ const toggleFood = (checkboxElement) => {
     else {
         checkedFoods = checkedFoods.filter(id => id !== foodID);
     }
-    
+
     // Add conditional styling to the delete food button when boxes are/aren't checked.
     if (checkedFoods.length < 1) {
         document.querySelector("#deleteFoodBtn").classList.replace("bg-emerald-400", "bg-slate-200");
@@ -134,7 +134,7 @@ const deleteFoodBtnHandler = () => {
     checkedFoods = [];
 }
 
-document.querySelector("#foods-list").addEventListener("click", event => {
+document.addEventListener("click", event => {
     if (event.target.classList.contains("delete-checkbox")) {
         toggleFood(event.target);
     }
