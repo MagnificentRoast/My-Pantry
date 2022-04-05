@@ -1,9 +1,10 @@
 <!-- template for the myPantry page -->
-<section>
-    <nav>
-        <a href="/">Log Out</a>
+<section class="flex flex-col justify-center items-center border border-green-600">
+    <nav class="bg-slate-900 border w-screen py-2 flex h-24 items-start">
+        <a class="ml-4 p-2 font-bold rounded bg-emerald-300" href="/">Log Out</a>
+        <p class="ml-4 p-2 italic text-slate-600">Logged in as {{user.username}}</p>
     </nav>
-    <h2 id="pantry-title">Welcome to {{user.username}}'s Pantry!</h2>
+    <h2 id="pantry-title" class="">{{user.username}}'s Pantry</h2>
 
     <!-- new food and delete food buttons -->
 
