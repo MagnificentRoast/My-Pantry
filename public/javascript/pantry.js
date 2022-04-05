@@ -29,6 +29,7 @@ const addFoodBtnHandler = () => {
         const newFoodSearch = document.createElement("input");
         newFoodSearch.setAttribute("id", "newFoodSearch");
         newFoodSearch.setAttribute("placeholder", "Select A Food");
+        newFoodSearch.classList = "rounded ml-4 h-1/2 p-2";
         
     
         //To the right of that, display an "add" button
@@ -36,6 +37,7 @@ const addFoodBtnHandler = () => {
         newFoodBtn.setAttribute("id", "newFoodBtn");
         newFoodBtn.textContent = "Add to Pantry";
         newFoodBtn.setAttribute("type", "submit");
+        newFoodBtn.classList = "ml-2 h-1/2 p-2 bg-orange-300 font-bold rounded";
     
         // Append both items to a new form element
         const newFoodForm = document.createElement("form");
@@ -43,12 +45,17 @@ const addFoodBtnHandler = () => {
         newFoodForm.appendChild(newFoodSearch);
         newFoodForm.appendChild(newFoodBtn);
     
-        document.querySelector("#pantry-buttons").appendChild(newFoodForm);
+        // Append the form to the new-food-div element
+        document.querySelector("#new-food-div").appendChild(newFoodForm);
     
         // Add listeners and handlers
         newFoodForm.addEventListener("submit", (event) => {
             event.preventDefault();
-            
+            let newFood = document.querySelector("#newFoodSearch").value.trim();
+            if (!newFood || newFood === "") {
+                console.log("No food entered.");
+                return;
+            }
             // Fetch request to create a new food and then add to pantry
             fetch('/api/foods', {
                 method: 'post',
@@ -76,6 +83,9 @@ const addFoodBtnHandler = () => {
 
 // Assigns food IDs to an array on checkbox toggle
 const toggleFood = (checkboxElement) => {
+
+    // Add conditional styling to the delete food button when boxes are/aren't checked.
+    // TODO: Code here
 
     // Get the neighboring <p> element's ID
     const foodID = checkboxElement.parentElement.children[0].getAttribute("id");

@@ -1,16 +1,18 @@
 <!-- template for the myPantry page -->
 <section class="flex flex-col justify-center items-center border border-green-600">
     <nav class="bg-slate-900 border w-screen py-2 flex h-24 items-start">
-        <a class="ml-4 p-2 font-bold rounded bg-emerald-300" href="/">Log Out</a>
+        <a class="ml-4 p-2 font-bold rounded bg-emerald-400" href="/">Log Out</a>
         <p class="ml-4 p-2 italic text-slate-600">Logged in as {{user.username}}</p>
     </nav>
-    <h2 id="pantry-title" class="">{{user.username}}'s Pantry</h2>
+    <h2 id="pantry-title" class="font-bold text-5xl mb-10 mt-4">{{user.username}}'s Pantry</h2>
 
     <!-- new food and delete food buttons -->
 
-    <div id="pantry-buttons" class="pantry-buttons">
-        <button id="addFoodBtn" type="submit" class="btn">New Food</button>
-        <button id="deleteFoodBtn" type="submit" class="btn">Delete Food</button>
+    <div id="pantry-buttons" class="pantry-buttons flex items-center justify-between bg-slate-800 rounded-lg w-3/4 p-4">
+        <div id="new-food-div" class="flex items-center">
+            <button id="addFoodBtn" type="submit" class="btn border font-bold bg-emerald-400 rounded p-3 ml-12">New Food</button>
+        </div>
+        <button id="deleteFoodBtn" type="submit" class="btn border font-bold bg-emerald-400 rounded p-3 mr-12">Delete Food</button>
 
     </div>
 
