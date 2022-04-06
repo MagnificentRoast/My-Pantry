@@ -1,13 +1,13 @@
         
                 <!-- title of site --> 
-        <header>
-            <h1>
+        <header class="bg-slate-900 w-screen py-2 flex h-24 items-start">
+            <h1 class="font-bold text-4xl mb-10 mt-4 mx-auto text-white">
                 <a href="/">My Pantry</a>
             </h1>
         </header>
         <br />
         <section id="site-description">
-            <p>
+            <p class="font-bold text-2xl mb-10 mt-4 mx-auto text-center bg-slate-900 text-white">
                 Welcome to My Pantry! Here you will be able to create a virtual food pantry to see what you've got on the shelves at home,
                 remove items so you'll never have to guess what you're out of, and shop confidently with the knowledge you can check back
                 without standing in front of the cupboard.
@@ -15,9 +15,9 @@
                 Stick around for future development features, such as a shopping list and recipies created from your ingredients!
             </p>
             <br />
-        </section><section id="login-form">
+        </section><section id="login-form" class="ml-4 sm:ml-12 font-semibold">
             <!-- holds the form for login using partials -->
-            <p>Log In</p>
+            <p class="font-bold text-1xl mb-3 mt-4 mx-auto">Log In</p>
             <br />
             <form class="login-form">
                 <div>
@@ -29,15 +29,16 @@
                     <label for="password-login">password:</label>
                     <input type="password" id="password-login" />
                 </div>
+                <br />
                 <div>
                     <button type="submit" class="btn font-bold bg-emerald-400 rounded p-3 mb-4 sm:mb-0 mx-0 sm:ml-6 md:ml-12">login</button>
                 </div>
             </form>
         </section>
         <br />
-        <section id="signup-form">
+        <section id="signup-form" class="ml-4 sm:ml-12 font-semibold">
             <!-- holds the form for sign up using partials -->
-            <p>Create Account</p>
+            <p class="font-bold text-1xl mb-3 mt-4 mx-auto">Create Account</p>
             <br />
             <form class="signup-form">
                 <div>
@@ -49,6 +50,7 @@
                     <label for="password-signup">password:</label>
                     <input type="password" id="password-signup" />
                 </div>
+                <br />
                 <div>
                     <button type="submit" class="btn font-bold bg-emerald-400 rounded p-3 mb-4 sm:mb-0 mx-0 sm:ml-6 md:ml-12">sign up</button>
                 </div>
