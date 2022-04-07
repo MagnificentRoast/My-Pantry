@@ -1,59 +1,69 @@
-        
-                <!-- title of site --> 
-        <header class="bg-slate-900 w-screen py-2 flex h-24 items-start">
-            <h1 class="font-bold text-4xl mb-10 mt-4 mx-auto text-white">
-                <a href="/">My Pantry</a>
-            </h1>
-        </header>
-        <section id="site-description"  class="font-bold text-2xl mb-10 mt-4 mx-auto text-center bg-slate-800 text-white w-1/2 rounded-lg shadow-xl">
-            <p class="text-center">
-                Welcome to My Pantry! Here you will be able to create a virtual food pantry to see what you've got on the shelves at home,
-                remove items so you'll never have to guess what you're out of, and shop confidently with the knowledge you can check back
-                without standing in front of the cupboard.
-                Stick around for future development features, such as a shopping list and recipes created from your ingredients!
-            </p>
-            <br />
-        </section><section id="login-form" class="ml-4 sm:ml-12 font-semibold text-center">
-            <!-- holds the form for login using partials -->
-            <p class="font-bold text-1xl mb-3 mt-4 mx-auto">Log In</p>
-            <br />
-            <form class="login-form">
-                <div>
-                    <label for="username-login">username:</label>
-                    <input type="text" id="username-login" />
-                </div>
-                <br />
-                <div>
-                    <label for="password-login">password:</label>
-                    <input type="password" id="password-login" />
-                </div>
-                <br />
-                <div>
-                    <button type="submit" class="btn font-bold bg-emerald-400 rounded p-3 mb-4 sm:mb-0 mx-0 sm:ml-6 md:ml-12">login</button>
-                </div>
-            </form>
-        </section>
+<!-- title of site -->
+<header class="bg-slate-900 w-screen py-2 flex h-24 items-start">
+    <h1 class="font-bold text-4xl mb-10 mt-4 mx-auto text-white">
+        <a href="/">My Pantry</a>
+    </h1>
+</header>
+<section id="site-description"
+    class="font-bold text-2xl mb-10 mt-4 mx-auto text-center bg-slate-800 text-white w-1/2 rounded-lg shadow-xl">
+    <p class="text-center p-3">
+        Welcome to My Pantry! Here you will be able to create a virtual food pantry to see what you've got on the
+        shelves at home,
+        remove items so you'll never have to guess what you're out of, and shop confidently with the knowledge you can
+        check back
+        without standing in front of the cupboard.
+        Stick around for future development features, such as a shopping list and recipes created from your ingredients!
+    </p>
+    <br />
+</section>
+<div class="flex flex-col items-center justify-center">
+    <section id="login-form"
+        class="ml-4 sm:ml-12 font-semibold text-center border-r border-b border-l lg:border-t rounded-b lg:rounded p-4 flex flex-col justify-between leading-normal w-1/3 hover:shadow-xl">
+        <!-- holds the form for login using partials -->
+        <p class="font-bold text-2xl mb-3 mt-4 mx-auto">Log In</p>
         <br />
-        <section id="signup-form" class="ml-4 sm:ml-12 font-semibold text-center">
-            <!-- holds the form for sign up using partials -->
-            <p class="font-bold text-1xl mb-3 mt-4 mx-auto">Create Account</p>
+        <form class="login-form">
+            <div>
+                <label for="username-login">Username:</label>
+                <input type="text" id="username-login" class="bg-white"/>
+            </div>
             <br />
-            <form class="signup-form">
-                <div>
-                    <label for="username-signup">username:</label>
-                    <input type="text" id="username-signup" />
-                </div>
-                <br />
-                <div>
-                    <label for="password-signup">password:</label>
-                    <input type="password" id="password-signup" />
-                </div>
-                <br />
-                <div>
-                    <button type="submit" class="btn font-bold bg-emerald-400 rounded p-3 mb-4 sm:mb-0 mx-0 sm:ml-6 md:ml-12">sign up</button>
-                </div>
-            </form>
-        </section>
+            <div>
+                <label for="password-login">Password:</label>
+                <input type="password" id="password-login"  class="bg-white"/>
+            </div>
+            <br />
+            <div>
+                <button type="submit"
+                    class="btn font-bold bg-emerald-400 rounded p-3 mb-4 sm:mb-0 mx-0 sm:ml-6 md:ml-12">Login</button>
+            </div>
+        </form>
+    </section>
+</div>
+<br />
+<div class="flex flex-col items-center justify-center pb-10">
+    <section id="signup-form" class="ml-4 sm:ml-12 font-semibold text-center border-r border-b border-l lg:border-t rounded-b lg:rounded p-4 flex flex-col justify-between leading-normal w-1/3 hover:shadow-xl">
+        <!-- holds the form for sign up using partials -->
+        <p class="font-bold text-2xl mb-3 mt-4 mx-auto">Create Account</p>
+        <br />
+        <form class="signup-form">
+            <div>
+                <label for="username-signup">Username:</label>
+                <input type="text" id="username-signup" class="bg-white"/>
+            </div>
+            <br />
+            <div>
+                <label for="password-signup">Password:</label>
+                <input type="password" id="password-signup" class="bg-white"/>
+            </div>
+            <br />
+            <div>
+                <button type="submit"
+                    class="btn font-bold bg-emerald-400 rounded p-3 mb-4 sm:mb-0 mx-0 sm:ml-6 md:ml-12">Sign Up</button>
+            </div>
+        </form>
+    </section>
+</div>
 
 <!-- add javascript link for event handlers etc. -->
 <script src="/javascript/homepage.js"></script>
