@@ -18,48 +18,52 @@
 </section>
 <div class="flex flex-col items-center justify-center">
     <section id="login-form"
-        class="ml-4 sm:ml-12 font-semibold text-center border-r border-b border-l lg:border-t rounded-b lg:rounded p-4 flex flex-col justify-between leading-normal w-1/3 hover:shadow-xl">
+        class="font-semibold rounded-lg bg-white text-center border-r border-b border-l lg:border-t rounded-b lg:rounded p-4 flex flex-col justify-between leading-normal w-1/3 shadow-xl">
         <!-- holds the form for login using partials -->
-        <p class="font-bold text-2xl mb-3 mt-4 mx-auto">Log In</p>
+        <div class="w-100 bg-slate-800 rounded">
+            <p class="font-bold text-gray-50 text-2xl mb-3 mt-4 mx-auto">Log In</p>
+        </div>
         <br />
-        <form class="login-form">
+        <form class="login-form sm:flex sm:flex-col lg:block">
             <div>
                 <label for="username-login">Username:</label>
-                <input type="text" id="username-login" class="bg-white"/>
+                <input type="text" id="username-login" class="rounded border border-slate-400 pl-2 bg-white"/>
             </div>
             <br />
             <div>
                 <label for="password-login">Password:</label>
-                <input type="password" id="password-login"  class="bg-white"/>
+                <input type="password" id="password-login"  class="rounded border border-slate-400 pl-2 bg-white"/>
             </div>
             <br />
             <div>
                 <button type="submit"
-                    class="btn font-bold bg-emerald-400 rounded p-3 mb-4 sm:mb-0 mx-0 sm:ml-6 md:ml-12">Login</button>
+                    class="btn font-bold bg-emerald-400 rounded p-3 mb-4 sm:mb-0 mx-0">Login</button>
             </div>
         </form>
     </section>
 </div>
 <br />
 <div class="flex flex-col items-center justify-center pb-10">
-    <section id="signup-form" class="ml-4 sm:ml-12 font-semibold text-center border-r border-b border-l lg:border-t rounded-b lg:rounded p-4 flex flex-col justify-between leading-normal w-1/3 hover:shadow-xl">
+    <section id="signup-form" class="font-semibold rounded-lg bg-white text-center border-r border-b border-l lg:border-t rounded-b lg:rounded p-4 flex flex-col justify-between leading-normal w-1/3 shadow-xl">
         <!-- holds the form for sign up using partials -->
-        <p class="font-bold text-2xl mb-3 mt-4 mx-auto">Create Account</p>
+        <div class="w-100 rounded bg-slate-800">
+            <p class="font-bold text-2xl text-gray-50 mb-3 mt-4 mx-auto">Create Account</p>
+        </div>
         <br />
-        <form class="signup-form">
+        <form class="signup-form sm:flex sm:flex-col lg:block">
             <div>
                 <label for="username-signup">Username:</label>
-                <input type="text" id="username-signup" class="bg-white"/>
+                <input type="text" id="username-signup" class="rounded border border-slate-400 pl-2 bg-white"/>
             </div>
             <br />
             <div>
                 <label for="password-signup">Password:</label>
-                <input type="password" id="password-signup" class="bg-white"/>
+                <input type="password" id="password-signup" class="rounded border border-slate-400 pl-2 bg-white"/>
             </div>
             <br />
             <div>
                 <button type="submit"
-                    class="btn font-bold bg-emerald-400 rounded p-3 mb-4 sm:mb-0 mx-0 sm:ml-6 md:ml-12">Sign Up</button>
+                    class="btn font-bold bg-emerald-400 rounded p-3 mb-4 sm:mb-0 mx-0">Sign Up</button>
             </div>
         </form>
     </section>
